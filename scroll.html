@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      body {
+        background-color: #333;
+        color: white;
+      }
+      .container,
+      body,
+      html {
+        scroll-snap-type: y mandatory;
+      }
+      .child {
+        height: 100vh;
+        scroll-snap-align: start;
+        display: grid;
+        font-size: 2rem;
+        place-items: center;
+        background-color: blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hola</h1>
+    <div class="container"></div>
+    <script>
+      const container = document.querySelector(".container");
+
+      const lista = Array.from(Array(10), (_, i) => `js ${i + 1}`);
+      console.log(lista);
+      lista.forEach((e) => {
+        let div = document.createElement("div");
+        div.textContent = e;
+        div.classList = "child";
+        container.append(div);
+      });
+    </script>
+  </body>
+</html>
